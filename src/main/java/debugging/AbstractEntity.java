@@ -1,6 +1,7 @@
 package debugging;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.quarkus.panache.common.impl.GenerateBridge;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -25,6 +26,7 @@ public abstract class AbstractEntity extends PanacheEntityBase {
     @Column(name = "common_column", nullable = false, unique = true)
     public String commonColumn;
 
+    @GenerateBridge
     public static long deleteBulkById(Set<UUID> ids) {
         if (ids == null || ids.isEmpty()) {
             return -1;
