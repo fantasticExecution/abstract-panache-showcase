@@ -2,6 +2,7 @@ package debugging;
 
 import io.quarkus.test.TestTransaction;
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestTransaction
 class EntityTest {
 
-    @Test
+    @RepeatedTest(5)
     void createAndDeleteEntitiesById() {
 
         ChildEntityA cea1 = new ChildEntityA();
